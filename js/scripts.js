@@ -1,15 +1,24 @@
-const toRoman = (num) => {  
+/**
+ * The function return a roman litelral representation 
+ * for a provided positive decimal integer number
+ * @example
+ * // returns XL
+ * toRoman(90);
+ * @param num The number in decimal
+ * @returns {String} Returns string value of the roman literal.
+ */
+const toRoman = (num) => {
   let stringsRes = '';
   let decimals = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
   let romans = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
-  for (let i = 0; i <= decimals.length; i++) { 
-    while (num % decimals[i] < num) {   
-      stringsRes += romans[i]; 
-      num -= decimals[i]; 
+  for (let i = 0; i <= decimals.length; i++) { // looping through all pivots
+    while (num % decimals[i] < num) {  //while modus op is less tn num  
+      stringsRes += romans[i]; // add the roman number to stringsRes
+      num -= decimals[i]; // substract the decimal value from the num
     }
   }
   return stringsRes;
-}
+};
 
 document.write(`${toRoman(90)} (expected: XC)<br>`);  
 document.write(`${toRoman(40)} (expected: XL)<br>`);  
